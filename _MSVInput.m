@@ -52,7 +52,7 @@ frame(turn,manager,childHandle1,childHandle2,fp1,i,threadNum) and
 	int turn and FILE *fp1 and int threadNum<==0 and int i<==0 and 
 	HANDLE manager <== (HANDLE)_beginthreadex(NULL, 0, MyManagerThread, NULL, 4, NULL) and 
 	HANDLE childHandle1 <== (HANDLE)_beginthreadex(NULL, 0, ChildThread1, NULL, 4, NULL) and
-	HANDLE childHandle2 <== (HANDLE)_beginthreadex(NULL, 0, ChildThread2, NULL, 4, NULL) and skip; //创建管理线程和两个子线程，初始状态都为阻塞
+	HANDLE childHandle2 <== (HANDLE)_beginthreadex(NULL, 0, ChildThread2, NULL, 4, NULL) and skip; //创建管理线程和两个子线程，初始状态都为挂起
 	ResumeThread(manager) and skip; //管理线程开始执行
 	WaitForSingleObject(manager, 2147483647) and skip //等待管理线程执行结束
 )
